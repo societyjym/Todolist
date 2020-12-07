@@ -1,3 +1,6 @@
+$(document).ready(
+    initCalender()  
+)
 var monthName = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
 
 var now = new Date();
@@ -5,7 +8,7 @@ var day = now.getDate();
 var month = now.getMonth();
 var currentMonth = month;
 var year = now.getFullYear();
-initCalender()
+
 function initCalender() {
     $("#text_day").text(day);
     $("#text_month").text(monthName[currentMonth]);
@@ -17,10 +20,10 @@ function initCalender() {
 
     for(let i = starDay(); i>0; i--){
         $(".container_days").append
-        (`<span class = "week_days_item item_day prev_days">${getTotalDays(month-1)-(i-1)}</span>`);
+        (`<span class = "week_days_item item_day prev_days">${getTotalDays()-1-(i-1)}</span>`);
     }
 
-    for(let i = 1; i<=getTotalDays(month); i++){
+    for(let i = 1; i<=getTotalDays(); i++){
         if (i == day & month == currentMonth) {
             $(".container_days").append
             (`<span class = "week_days_item item_day today">${i}</span>`);  
